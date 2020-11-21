@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html layout:decorator="layout" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+<!--/* この形式のコメントはHTMLソースから削除される */-->
+<div layout:fragment="content">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            IoT Dashboard
+        </h1>
+        <ol class="breadcrumb">
+            <li><a th:href="@{/}"><i class="fa fa-dashboard"></i> Home</a></li>
+            <!--/*<li class="active">Here</li>*/-->
+        </ol>
+    </section>
+    <!-- Chart -->
+    <section class="content container-fluid">
+        <!-------------------------
+         | Your Page Content Here |
+         -------------------------->
+        <div class="row">
+        </div>
+        <!-- /.row -->
+
+    </section>
+
+</div>
+</body>
+</html>
