@@ -9,9 +9,9 @@
     </appender>
 
     <appender name="APPLICATION_LOG_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${app.log.dir:-logs}/remoteio.log</file>
+        <file>${app.log.dir:-logs}/iot-dashboard.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${app.log.dir:-logs}/remoteio-%d{yyyyMMdd}.zip</fileNamePattern>
+            <fileNamePattern>${app.log.dir:-logs}/iot-dashboard-%d{yyyyMMdd}.zip</fileNamePattern>
             <maxHistory>3</maxHistory>
         </rollingPolicy>
         <encoder>
@@ -21,12 +21,12 @@
     </appender>
 
     <appender name="MONITORING_LOG_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${app.log.dir:-logs}/remoteio-monitoring.log</file>
+        <file>${app.log.dir:-logs}/iot-dashboard-monitoring.log</file>
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
             <level>debug</level>
         </filter>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${app.log.dir:-logs}/remoteio-monitoring-%d{yyyyMMdd}.zip</fileNamePattern>
+            <fileNamePattern>${app.log.dir:-logs}/iot-dashboard-monitoring-%d{yyyyMMdd}.zip</fileNamePattern>
             <maxHistory>3</maxHistory>
         </rollingPolicy>
         <encoder>

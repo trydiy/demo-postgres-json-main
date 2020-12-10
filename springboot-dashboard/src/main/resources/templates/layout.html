@@ -58,13 +58,13 @@
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                             <!-- hidden-xs hides the username on small devices so only the image appears. -->
                             <!--/*<span class="hidden-xs">[[${form.userName}]]</span>*/-->
-                            <img alt="User Image" class="user-image" src="img/user_icon.png">
+                            <img alt="User Image" class="user-image" th:src="@{/img/user_icon.png}">
                             <span class="hidden-xs" th:text="${#authentication.getPrincipal().getUsername()}"></span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- The user image in the menu -->
                             <li class="user-header">
-                                <img alt="User Image" class="img-circle" src="img/user_icon.png">
+                                <img alt="User Image" class="img-circle" th:src="@{/img/user_icon.png}">
                                 <p>
                                     IoT Dashboard
                                     <small><span
@@ -102,8 +102,8 @@
                         </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a th:href="@{/read}">test1</a></li>
-                        <li><a th:href="@{/write}">test2</a></li>
+                        <li><a th:href="@{/test1}">test1</a></li>
+                        <li><a th:href="@{/test2}">test2</a></li>
                     </ul>
                 </li>
             </ul>

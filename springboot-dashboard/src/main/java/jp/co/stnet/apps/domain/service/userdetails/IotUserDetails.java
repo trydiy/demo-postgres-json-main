@@ -36,6 +36,10 @@ public class IotUserDetails implements UserDetails {
         return this.users.getUsername();
     }
 
+    public String getUserId() {
+        return this.users.getUserId();
+    }
+
     public Users getUsers() {
         return users;
     }

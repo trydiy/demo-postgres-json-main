@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.2.7.RELEASE</version>
+        <version>2.3.6.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>jp.co.sntet</groupId>
@@ -15,8 +15,8 @@
     <description>IoT dashboard</description>
 
     <properties>
-        <java.version>1.8</java.version>
-        <camel.version>2.25.1</camel.version>
+        <java.version>11</java.version>
+        <tomcat.version>9.0.40</tomcat.version>
     </properties>
 
     <dependencies>
@@ -83,16 +83,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-freemarker</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.apache.camel</groupId>
-            <artifactId>camel-spring-boot-starter</artifactId>
-            <version>${camel.version}</version>
-        </dependency>
-        <!--<dependency>
-            <groupId>org.apache.camel</groupId>
-            <artifactId>camel-zipfile</artifactId>
-            <version>${camel.version}</version>
-        </dependency>-->
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
@@ -165,18 +155,6 @@
             <version>3.10</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.bouncycastle/bcpkix-jdk15on -->
-        <dependency>
-            <groupId>org.bouncycastle</groupId>
-            <artifactId>bcpkix-jdk15on</artifactId>
-            <version>1.64</version>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.paho</groupId>
-            <artifactId>org.eclipse.paho.client.mqttv3</artifactId>
-            <version>1.2.2</version>
-        </dependency>
-
     </dependencies>
 
     <!-- project build setting -->
@@ -188,8 +166,27 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
                     <executable>true</executable>
+                    <!-- cloud native build pack -->
+                    <image>
+                        <name>trydiy/${project.artifactId}</name>
+                    </image>
                 </configuration>
             </plugin>
+            <!-- docker image create -->
+            <plugin>
+                <groupId>com.google.cloud.tools</groupId>
+                <artifactId>jib-maven-plugin</artifactId>
+                <version>2.2.0</version>
+                <configuration>
+                    <from>
+                        <image>openjdk:alpine</image>
+                    </from>
+                    <to>
+                        <image>iot-dashboard</image>
+                    </to>
+                </configuration>
+            </plugin>
+
             <!-- for resources copy -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
