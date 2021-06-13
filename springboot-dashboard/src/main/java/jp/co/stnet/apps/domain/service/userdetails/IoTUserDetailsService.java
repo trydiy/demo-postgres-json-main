@@ -1,6 +1,8 @@
 package jp.co.stnet.apps.domain.service.userdetails;
 
+import jp.co.stnet.apps.domain.model.Authorities;
 import jp.co.stnet.apps.domain.model.Users;
+import jp.co.stnet.apps.domain.repository.AuthoritiesRepository;
 import jp.co.stnet.apps.domain.repository.UsersRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,14 +23,18 @@ public class IoTUserDetailsService implements UserDetailsService {
     @Autowired
     UsersRepository usersRepository;
 
+    @Autowired
+    AuthoritiesRepository authoritiesRepository;
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        List<Users> usersList = usersRepository.selectAll();
-        logger.info("users rec size: {}", usersList.size());
+
         Users users = usersRepository.selectByPrimaryKey(username);
         if (users == null) {
             throw new UsernameNotFoundException(username + " is not found.");
         }
-        return new IotUserDetails(users);
+
+        Authorities authorities = authoritiesRepository.selectByPrimaryKey(users.getUsername());
+        return new IotUserDetails(users, authorities);
     }
 }

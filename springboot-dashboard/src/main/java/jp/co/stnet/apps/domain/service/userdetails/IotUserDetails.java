@@ -1,6 +1,9 @@
 package jp.co.stnet.apps.domain.service.userdetails;
 
+import jp.co.stnet.apps.domain.model.Authorities;
 import jp.co.stnet.apps.domain.model.Users;
+import jp.co.stnet.apps.domain.repository.AuthoritiesRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -14,16 +17,20 @@ public class IotUserDetails implements UserDetails {
 
     private static final List<? extends GrantedAuthority> DEFAULT_AUTHORITIES = AuthorityUtils
             .createAuthorityList("ROLE_USER");
-
     private final Users users;
+    private final Authorities authorities;
+    @Autowired
+    AuthoritiesRepository authoritiesRepository;
 
-    public IotUserDetails(Users users) {
+    public IotUserDetails(Users users, Authorities authorities) {
         this.users = users;
+        this.authorities = authorities;
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return DEFAULT_AUTHORITIES;
+        return AuthorityUtils.createAuthorityList(authorities.getAuthority());
+        //return DEFAULT_AUTHORITIES;
     }
 
     @Override
@@ -39,6 +46,8 @@ public class IotUserDetails implements UserDetails {
     public String getUserId() {
         return this.users.getUserId();
     }
+
+    public String getAppId() { return this.users.getAppId(); }
 
     public Users getUsers() {
         return users;
@@ -65,3 +74,4 @@ public class IotUserDetails implements UserDetails {
     }
 
 }
+

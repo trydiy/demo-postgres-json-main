@@ -1,6 +1,7 @@
 package jp.co.stnet.apps.domain.repository;
 
 import jp.co.stnet.apps.domain.model.Authorities;
+import org.apache.ibatis.annotations.Param;
 
 public interface AuthoritiesRepository {
     /**
@@ -18,4 +19,10 @@ public interface AuthoritiesRepository {
      * @mbg.generated
      */
     int insertSelective(Authorities record);
+
+    /**
+     * @param username
+     * @return
+     */
+    Authorities selectByPrimaryKey(@Param("username") String username);
 }

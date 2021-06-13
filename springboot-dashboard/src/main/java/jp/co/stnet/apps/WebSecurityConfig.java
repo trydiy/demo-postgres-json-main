@@ -36,8 +36,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf()//
                 .csrfTokenRepository(new CookieCsrfTokenRepository());
 
+        http.headers().frameOptions().sameOrigin();
+
         http.authorizeRequests()
-                .antMatchers("/js/**", "/css/**", "/webjars/**").permitAll()
+                .antMatchers("/js/**", "/css/**", "/img/**", "/webjars/**").permitAll()
+                .mvcMatchers("/test2/**").hasRole("ADMIN")
                 .antMatchers("/**").authenticated()
                 .and()
                 .formLogin()

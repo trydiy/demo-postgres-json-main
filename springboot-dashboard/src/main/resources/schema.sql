@@ -5,6 +5,7 @@ DROP TABLE IF EXISTS users;
 CREATE TABLE users (
     username                VARCHAR(60)   NOT NULL,
     user_id                 VARCHAR(10)   NOT NULL,
+    app_id                  VARCHAR(10)   NOT NULL,
     password                VARCHAR(256)  NOT NULL,
     enabled                 boolean       NOT NULL,
     create_time             TIMESTAMP     DEFAULT CURRENT_TIMESTAMP,
