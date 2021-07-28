@@ -47,7 +47,9 @@ public class IotUserDetails implements UserDetails {
         return this.users.getUserId();
     }
 
-    public String getAppId() { return this.users.getAppId(); }
+    public String getAppId() {
+        return this.users.getAppId();
+    }
 
     public Users getUsers() {
         return users;

@@ -20,28 +20,11 @@
         </encoder>
     </appender>
 
-    <appender name="MONITORING_LOG_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${app.log.dir:-logs}/iot-dashboard-monitoring.log</file>
-        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
-            <level>debug</level>
-        </filter>
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${app.log.dir:-logs}/iot-dashboard-monitoring-%d{yyyyMMdd}.zip</fileNamePattern>
-            <maxHistory>3</maxHistory>
-        </rollingPolicy>
-        <encoder>
-            <charset>UTF-8</charset>
-            <pattern>
-                <![CDATA[date:%d{yyyy-MM-dd HH:mm:ss.SSS}\tX-Track:%X{X-Track}\tlevel:%-5level\tmessage:%msg%n]]></pattern>
-        </encoder>
-    </appender>
-
     <!-- root logger setting -->
     <root>
         <level value="INFO"/>
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="APPLICATION_LOG_FILE"/>
-        <appender-ref ref="MONITORING_LOG_FILE"/>
     </root>
 
     <!-- log4jdbc-log4j2 -->

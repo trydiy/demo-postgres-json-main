@@ -1,6 +1,5 @@
 package jp.co.stnet.apps.web.home;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import jp.co.stnet.apps.domain.service.userdetails.IotUserDetails;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -47,7 +46,7 @@ public class HomeController {
 
         // (1ロール／ユーザの設定で利用)
         String role = "ROLE_USER";
-        for(Iterator<String> itr = roles.iterator(); itr.hasNext();) {
+        for (Iterator<String> itr = roles.iterator(); itr.hasNext(); ) {
             role = itr.next();
             logger.info("ROLE : {}", role);
         }
