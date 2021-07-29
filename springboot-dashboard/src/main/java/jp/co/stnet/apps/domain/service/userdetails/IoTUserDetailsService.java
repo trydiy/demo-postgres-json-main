@@ -18,11 +18,16 @@ public class IoTUserDetailsService implements UserDetailsService {
     private static final Logger logger =
             LoggerFactory.getLogger(IoTUserDetailsService.class);
 
-    @Autowired
-    UsersRepository usersRepository;
+    private final UsersRepository usersRepository;
+
+    private final AuthoritiesRepository authoritiesRepository;
 
     @Autowired
-    AuthoritiesRepository authoritiesRepository;
+    public IoTUserDetailsService(UsersRepository usersRepository, AuthoritiesRepository authoritiesRepository) {
+        this.usersRepository = usersRepository;
+        this.authoritiesRepository = authoritiesRepository;
+    }
+
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

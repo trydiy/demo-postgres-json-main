@@ -168,7 +168,7 @@
                     <executable>true</executable>
                     <!-- cloud native build pack -->
                     <image>
-                        <name>trydiy/${project.artifactId}</name>
+                        <name>${project.artifactId}</name>
                     </image>
                 </configuration>
             </plugin>
