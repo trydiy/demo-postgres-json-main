@@ -24,6 +24,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final IoTUserDetailsService iotUserDetailsService;
 
+    /**
+     * Constructor.
+     *
+     * @param iotUserDetailsService
+     */
     @Autowired
     public WebSecurityConfig(IoTUserDetailsService iotUserDetailsService) {
         this.iotUserDetailsService = iotUserDetailsService;
