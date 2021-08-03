@@ -22,8 +22,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     //@Autowired
     //AccessDeniedHandler accessDeniedHandler;
 
+    private final IoTUserDetailsService iotUserDetailsService;
+
     @Autowired
-    IoTUserDetailsService iotUserDetailsService;
+    public WebSecurityConfig(IoTUserDetailsService iotUserDetailsService) {
+        this.iotUserDetailsService = iotUserDetailsService;
+    }
 
     @Bean
     PasswordEncoder passwordEncoder() {

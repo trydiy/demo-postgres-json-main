@@ -19,12 +19,20 @@ public class IotUserDetails implements UserDetails {
             .createAuthorityList("ROLE_USER");
     private final Users users;
     private final Authorities authorities;
-    @Autowired
-    AuthoritiesRepository authoritiesRepository;
+    private final AuthoritiesRepository authoritiesRepository;
 
-    public IotUserDetails(Users users, Authorities authorities) {
+    /**
+     * Constructor.
+     *
+     * @param users
+     * @param authorities
+     * @param authoritiesRepository
+     */
+    @Autowired
+    public IotUserDetails(Users users, Authorities authorities, AuthoritiesRepository authoritiesRepository) {
         this.users = users;
         this.authorities = authorities;
+        this.authoritiesRepository = authoritiesRepository;
     }
 
     @Override
