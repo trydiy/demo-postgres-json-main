@@ -22,9 +22,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     //@Autowired
     //AccessDeniedHandler accessDeniedHandler;
 
-    //@Autowired
     private final IoTUserDetailsService iotUserDetailsService;
 
+    /**
+     * Constructor.
+     *
+     * @param iotUserDetailsService
+     */
     @Autowired
     public WebSecurityConfig(IoTUserDetailsService iotUserDetailsService) {
         this.iotUserDetailsService = iotUserDetailsService;

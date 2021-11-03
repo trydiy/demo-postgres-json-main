@@ -22,8 +22,17 @@ public class HomeController {
 
     private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
+    private final HttpSession session;
+
+    /**
+     * Constructor.
+     *
+     * @param session
+     */
     @Autowired
-    HttpSession session;
+    public HomeController(HttpSession session) {
+        this.session = session;
+    }
 
     /**
      * トップページを返します.

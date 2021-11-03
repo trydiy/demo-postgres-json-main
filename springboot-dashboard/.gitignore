@@ -66,3 +66,7 @@ Thumbs.db
 # Gradle
 .gradle
 !gradle-wrapper.jar
+/.idea/
+/logs/
+/target/
+/iot-dashboard.iml
