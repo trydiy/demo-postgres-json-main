@@ -1,0 +1,68 @@
+# Java
+*.class
+*.war
+*.ear
+
+HELP.md
+target/
+.mvn
+mvnw
+mvnw.cmd
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**
+!**/src/test/**
+
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+rebel.xml
+nbactions.xml
+nb-configuration.xml
+nb_jr_remoting.cfg
+.rebel-remote.xml
+.rebel-remote.xml.bak
+
+
+### VS Code ###
+.vscode/
+
+# Build
+out
+build
+bin
+
+# Other
+*.log
+*.swp
+*.bak
+log
+logs
+nbproject
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Gradle
+.gradle
+!gradle-wrapper.jar
