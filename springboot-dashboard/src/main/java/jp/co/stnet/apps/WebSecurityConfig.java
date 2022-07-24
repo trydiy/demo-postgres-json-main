@@ -42,8 +42,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         // CookieにCSRFトークンを保存する
-        http.csrf()//
-                .csrfTokenRepository(new CookieCsrfTokenRepository());
+        CookieCsrfTokenRepository csrfTokenRepository = new CookieCsrfTokenRepository();
+        csrfTokenRepository.setSecure(true);
+        http.csrf().csrfTokenRepository(csrfTokenRepository);
 
         http.headers().frameOptions().sameOrigin();
 
